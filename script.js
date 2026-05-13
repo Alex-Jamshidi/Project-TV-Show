@@ -2,6 +2,7 @@
 function setup() {
   const allEpisodes = getAllEpisodes();
   makePageForEpisodes(allEpisodes);
+  showAllEpisodes(allEpisodes);
 }
 
 function makePageForEpisodes(episodeList) {
@@ -9,37 +10,25 @@ function makePageForEpisodes(episodeList) {
   rootElem.textContent = `Got ${episodeList.length} episode(s)`;
 }
 
-/*
-function createFilmCard(episodeList) {
-  episode = episodeList[0];
-  const filmCard = document.createElement("section");
-  const epCodeAndName = document.createElement("h1");
-  const summary = document.createElement("p");
+function showAllEpisodes(allEpisodes) {
+  for (const episode of allEpisodes) {
+    const episodeCard = createEpisodeCard(episode);
+    document.getElementById("episodes").appendChild(episodeCard);
+  }
+}
 
+function createEpisodeCard(episode) {
   const episodeCode = createEpisodeCode(episode);
-  epCodeAndName.textContent = `${episodeCode} - ${episode.name}`;
-  summary.textContent = episode.summary;
-
-  filmCard.appendChild(epCodeAndName);
-  filmCard.appendChild(summary);
-  document.body.appendChild(filmCard);
-}*/
-
-function createFilmCard(episodeList) {
-  episode = episodeList[0];
-  const episodeCode = createEpisodeCode(episode);
-
   const episodeCard = document
     .getElementById("episode-card-template")
     .content.cloneNode(true);
 
-  episodeCard.querySelector("img").src =
-    "http://static.tvmaze.com/uploads/images/medium_landscape/1/2668.jpg";
+  episodeCard.querySelector("img").src = episode.image.medium;
   episodeCard.querySelector("h3").textContent =
     `${episodeCode} - ${episode.name}`;
   episodeCard.querySelector("p").textContent = episode.summary;
 
-  document.body.appendChild(episodeCard);
+  return episodeCard;
 }
 
 function createEpisodeCode(episode) {
@@ -48,8 +37,6 @@ function createEpisodeCode(episode) {
   return `S${seasonNum.padStart(2, 0)}E${episodeNum.padStart(2, 0)}`;
 }
 
-createEpisodeCode(getAllEpisodes()[0]);
-createFilmCard(getAllEpisodes());
 window.onload = setup;
 
 /*
