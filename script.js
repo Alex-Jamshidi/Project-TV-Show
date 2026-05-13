@@ -10,13 +10,17 @@ function makePageForEpisodes(episodeList) {
 }
 
 function createFilmCard(episodeList) {
-  episode1 = episodeList[0];
+  episode = episodeList[0];
   const filmCard = document.createElement("section");
-  const name = document.createElement("h1");
-  const episodeCode = createEpisodeCode(episode1);
+  const epCodeAndName = document.createElement("h1");
+  const summary = document.createElement("p");
 
-  name.textContent = `${episodeCode} - ${episode1.name}`;
-  filmCard.appendChild(name);
+  const episodeCode = createEpisodeCode(episode);
+  epCodeAndName.textContent = `${episodeCode} - ${episode.name}`;
+  summary.textContent = episode.summary;
+
+  filmCard.appendChild(epCodeAndName);
+  filmCard.appendChild(summary);
   document.body.appendChild(filmCard);
 }
 
@@ -32,9 +36,7 @@ window.onload = setup;
 
 /*
 
-   1. The name of the episode
-   2. The season number
-   3. The episode number
+
    4. The medium-sized image for the episode
    5. The summary text of the episode
 
