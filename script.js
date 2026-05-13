@@ -11,10 +11,8 @@ function makePageForEpisodes(episodeList) {
 }
 
 function showAllEpisodes(allEpisodes) {
-  for (const episode of allEpisodes) {
-    const episodeCard = createEpisodeCard(episode);
-    document.getElementById("episodes").appendChild(episodeCard);
-  }
+  const episodeCards = allEpisodes.map(createEpisodeCard);
+  document.getElementById("episodes").append(...episodeCards);
 }
 
 function createEpisodeCard(episode) {
