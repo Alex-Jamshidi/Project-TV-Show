@@ -35,6 +35,21 @@ function createEpisodeCode(episode) {
   return `S${seasonNum.padStart(2, 0)}E${episodeNum.padStart(2, 0)}`;
 }
 
+searchInput.addEventListener("input", function () {
+  const searchTerm = searchInput.value.toLowerCase();
+
+  const filteredEpisodes = allEpisodes.filter(function (episode) {
+    return (
+      episode.name.toLowerCase().includes(searchTerm) ||
+      episode.summary.toLowerCase().includes(searchTerm)
+    );
+  });
+
+  makePageForEpisodes(filteredEpisodes);
+
+  searchCount.textContent = `Displaying ${filteredEpisodes.length} / ${allEpisodes.length} episodes`;
+});
+
 window.onload = setup;
 
 /*
