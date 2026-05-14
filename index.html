@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -9,16 +9,17 @@
   </head>
 
   <body>
+    <input id="search-input" type="text" placeholder="Search episodes..." />
+    <p id="search-count"></p>
     <div id="root"></div>
     <div id="episodes"></div>
     <template id="episode-card-template">
       <section>
-        <img src="" alt="Episode Screenshot">
+        <img src="" alt="Episode Screenshot" />
         <h3>Ep Code and Name</h3>
         <p summary>Summary</p>
       </section>
     </template>
-    
 
     <footer>
       Episode data from
