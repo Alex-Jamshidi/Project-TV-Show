@@ -9,9 +9,14 @@
   </head>
 
   <body>
+    <label for="episode-select">Choose an episode:</label>
+    <select id="episode-select">
+      <option value="">Show all episodes</option>
+    </select>
+    <label>Search
     <input id="search-input" type="text" placeholder="Search episodes..." />
+    </label>
     <p id="search-count"></p>
-    <div id="root"></div>
     <div id="episodes"></div>
     <template id="episode-card-template">
       <section>
