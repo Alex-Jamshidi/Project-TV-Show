@@ -4,6 +4,7 @@ const searchCount = document.getElementById("search-count");
 const showSelect = document.getElementById("show-select");
 const episodeSelect = document.getElementById("episode-select");
 const statusMessage = document.getElementById("status-message");
+const homeLink = document.getElementById("home-link");
 
 // ----- state and cache
 const state = {
@@ -114,6 +115,13 @@ showSelect.addEventListener("change", function (e) {
   loadEpisodesForShow(showId);
 });
 
+// ----- event listener hyperlink
+homeLink.addEventListener("click", function (event) {
+  event.preventDefault();
+  makePageForShows(state.shows);
+  homeLink.textContent = "";
+});
+
 // ==================================== EPISODES ====================================
 
 // ----- setup for episodes
@@ -123,6 +131,7 @@ function makePageForEpisodes(episodeList) {
   populateEpisodeSelect(episodeList);
   showAllEpisodes(episodeList);
   searchCount.textContent = `Displaying ${episodeList.length} / ${state.episodes.length} episodes`;
+  homeLink.textContent = "<<< Return to Title Page of Shows";
 }
 // ----- appends episodes
 function showAllEpisodes(episodes) {
