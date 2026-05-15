@@ -26,21 +26,31 @@
     <div id="episodes"></div>
     <template id="episode-card-template">
       <section>
-        <img src="" alt="Episode Screenshot" />
+        <img src="" alt="" />
         <h3>Ep Code and Name</h3>
         <p summary>Summary</p>
       </section>
     </template>
+    <div id="shows"></div>
+        <template id="show-card-template">
+          <section>
+            <img src="" alt="" />
+            <h3>Show Name</h3>
+            <p summary>Summary</p>
+            <p genres>Genres</p>
+            <p status>Status</p>
+            <p rating>Rating</p>
+            <p runtime>Runtime</p>
+          </section>
+        </template>
 
     <footer>
       Episode data from
       <a href="https://www.tvmaze.com/">TVMaze.com</a>
     </footer>
 
-    <!-- Loads a provided function called getAllEpisodes() which returns all episodes -->
-    <script src="episodes.js"></script>
-
     <!-- Loads YOUR javascript code -->
-    <script src="script.js" defer></script>
+    <script src="script.js" type="module"></script>
+
   </body>
 </html>
