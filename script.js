@@ -2,12 +2,16 @@ const searchInput = document.getElementById("search-input");
 const searchCount = document.getElementById("search-count");
 const episodeSelector = document.getElementById("episode-selector");
 const statusMessage = document.getElementById("status-message");
+let allShows = [];
+let allEpisodes = [];
+const episodeCache = {};
 
 function setup() {
   fetchTvShows()
     .then(function (tvShows) {
       allEpisodes = tvShows;
       statusMessage.textContent = "";
+      allShows = tvShows.sort((a, b)) => a.name.localeCompare(b.name, undefined, {sensitivity: "base"});
       populateEpisodeSelect(tvShows);
       makePageForEpisodes(tvShows);
     })
