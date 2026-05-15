@@ -5,6 +5,8 @@ const showSelect = document.getElementById("show-select");
 const episodeSelect = document.getElementById("episode-select");
 const statusMessage = document.getElementById("status-message");
 const homeLink = document.getElementById("home-link");
+const allEpisodes = document.getElementById("episodes");
+const allShows = document.getElementById("shows");
 
 // ----- state and cache
 const state = {
@@ -113,6 +115,7 @@ showSelect.addEventListener("change", function (e) {
   const showId = e.target.value;
   if (!showId) return;
   loadEpisodesForShow(showId);
+  allShows.innerHTML = "";
 });
 
 // ----- event listener hyperlink
@@ -120,6 +123,7 @@ homeLink.addEventListener("click", function (event) {
   event.preventDefault();
   makePageForShows(state.shows);
   homeLink.textContent = "";
+  allEpisodes.innerHTML = "";
 });
 
 // ==================================== EPISODES ====================================
