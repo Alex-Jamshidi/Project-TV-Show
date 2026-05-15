@@ -9,12 +9,17 @@
   </head>
 
   <body>
+    <label for="show-select">Choose a show:</label>
+    <select id="show-select">
+      <option value="">Select a show...</option>
+    </select>
     <label for="episode-select">Choose an episode:</label>
     <select id="episode-select">
       <option value="">Show all episodes</option>
     </select>
-    <label>Search
-    <input id="search-input" type="text" placeholder="Search episodes..." />
+    <label
+      >Search
+      <input id="search-input" type="text" placeholder="Search episodes..." />
     </label>
     <p id="search-count"></p>
     <p id="status-message">--- Loading Data --- Please Wait...</p>
@@ -26,7 +31,7 @@
         <p summary>Summary</p>
       </section>
     </template>
-    
+
     <footer>
       Episode data from
       <a href="https://www.tvmaze.com/">TVMaze.com</a>
